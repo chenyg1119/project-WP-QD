@@ -5,8 +5,8 @@ from matplotlib.widgets import Slider, Button
 
 t=1 #tunneling strength
 d=2 #quantum dot energy
-theta = 0.2 #theta parameter
-w = np.linspace(-3,3,1000) #weyl point energy
+theta = 0 #theta parameter
+w = np.linspace(-4,4,1000) #weyl point energy
 def a(value):
     '''calculating three roots of the odd parity tunneling matrix, with no spin splitting
     and value as the theta parameter.
@@ -25,15 +25,15 @@ fig = plt.figure()
 ax = fig.add_subplot(111) #subplot for plot and the slide bar
 fig.subplots_adjust(left=0.25, bottom=0.25)
 
-theta_0 = np.pi #control boundary for theta
 [line1] = ax.plot(w,a(theta)[0])
 [line2] = ax.plot(w,a(theta)[1])
 [line3] = ax.plot(w,a(theta)[2])
-ax.set_xlim([-3, 3])
+ax.plot(w,np.zeros_like(w),'--',alpha = 0.6)
+ax.set_xlim([-4, 4])
 #draw 3 roots as a function of weyl energy w
 
 theta_slider_ax  = fig.add_axes([0.25, 0.15, 0.65, 0.03]) #draw slider
-theta_slider = Slider(theta_slider_ax, r'$\theta$', 0, np.pi, valinit=theta_0)
+theta_slider = Slider(theta_slider_ax, r'$\theta$', 0, np.pi, valinit=theta)
 
 def sliders_on_changed(val):
     '''
