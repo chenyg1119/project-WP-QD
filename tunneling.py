@@ -29,10 +29,11 @@ theta_0 = np.pi #control boundary for theta
 [line1] = ax.plot(w,a(theta)[0])
 [line2] = ax.plot(w,a(theta)[1])
 [line3] = ax.plot(w,a(theta)[2])
+ax.set_xlim([-3, 3])
 #draw 3 roots as a function of weyl energy w
 
 theta_slider_ax  = fig.add_axes([0.25, 0.15, 0.65, 0.03]) #draw slider
-theta_slider = Slider(theta_slider_ax, r'$\theta$', 0.1, 10.0, valinit=theta_0)
+theta_slider = Slider(theta_slider_ax, r'$\theta$', 0, np.pi, valinit=theta_0)
 
 def sliders_on_changed(val):
     '''
@@ -40,9 +41,9 @@ def sliders_on_changed(val):
     ------------
     val = theta
     '''
-    line1.set_ydata(a(theta_slider.val))
-    line2.set_ydata(a(theta_slider.val))
-    line3.set_ydata(a(theta_slider.val))
+    line1.set_ydata(a(theta_slider.val)[0])
+    line2.set_ydata(a(theta_slider.val)[1])
+    line3.set_ydata(a(theta_slider.val)[2])
     #updating the parameter theta by sliding val = theta
     fig.canvas.draw_idle()
 theta_slider.on_changed(sliders_on_changed)
