@@ -6,7 +6,7 @@ from matplotlib.widgets import Slider, Button
 t=1 #tunneling strength
 d=2 #quantum dot energy
 theta = 0.2 #theta parameter
-w = np.linspace(-3,3,1000) weyl point energy
+w = np.linspace(-3,3,1000) #weyl point energy
 def a(value):
     ***
     calculating three roots of the odd parity tunneling matrix, with no spin splitting
