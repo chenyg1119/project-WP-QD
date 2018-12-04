@@ -1,19 +1,19 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from numpy import linalg
-from matplotlib.widgets import Slider, Button
+from matplotlib.widgets import Slider
 
 t=1
 d=2
 theta = np.pi
 
-w = np.linspace(-4,4,1000)
+w = np.linspace(-4,4,200)
 def b(value):
-    m = np.empty([3,1000])
-    for i in range(1000):
-        m[0,i] = np.sort(np.roots([1,-2,-2-(w**2)[i]-2*np.cos(value),2*(w**2)[i]]))[0]
-        m[1,i] = np.sort(np.roots([1,-2,-2-(w**2)[i]-2*np.cos(value),2*(w**2)[i]]))[1]
-        m[2,i] = np.sort(np.roots([1,-2,-2-(w**2)[i]-2*np.cos(value),2*(w**2)[i]]))[2]
+    m = np.empty([3,200])
+    for i in range(200):
+        m[0,i] = np.sort(np.roots([1,-2,-2-(w**2)[i],2*(w**2)[i]+2*w[i]*np.cos(value)]))[0]
+        m[1,i] = np.sort(np.roots([1,-2,-2-(w**2)[i],2*(w**2)[i]+2*w[i]*np.cos(value)]))[1]
+        m[2,i] = np.sort(np.roots([1,-2,-2-(w**2)[i],2*(w**2)[i]+2*w[i]*np.cos(value)]))[2]
     return m
 
 fig = plt.figure()

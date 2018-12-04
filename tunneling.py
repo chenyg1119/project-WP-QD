@@ -1,12 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from numpy import linalg
-from matplotlib.widgets import Slider, Button
+from matplotlib.widgets import Slider
 
 t=1 #tunneling strength
 d=2 #quantum dot energy
 theta = 0 #theta parameter
-w = np.linspace(-4,4,1000) #weyl point energy
+w = np.linspace(-4,4,500) #weyl point energy
 def a(value):
     '''calculating three roots of the odd parity tunneling matrix, with no spin splitting
     and value as the theta parameter.
@@ -14,8 +14,8 @@ def a(value):
     --------------------
     returns a
     '''
-    m = np.empty([3,1000])
-    for i in range(1000):
+    m = np.empty([3,500])
+    for i in range(500):
         m[0,i] = np.sort(np.roots([1,-4,3-(w**2)[i],2-w[i]*np.cos(value)]))[0]
         m[1,i] = np.sort(np.roots([1,-4,3-(w**2)[i],2-w[i]*np.cos(value)]))[1]
         m[2,i] = np.sort(np.roots([1,-4,3-(w**2)[i],2-w[i]*np.cos(value)]))[2]
