@@ -16,9 +16,9 @@ def a(value):
     '''
     m = np.empty([3,500])
     for i in range(500):
-        m[0,i] = np.sort(np.roots([1,-4,3-(w**2)[i],2-w[i]*np.cos(value)]))[0]
-        m[1,i] = np.sort(np.roots([1,-4,3-(w**2)[i],2-w[i]*np.cos(value)]))[1]
-        m[2,i] = np.sort(np.roots([1,-4,3-(w**2)[i],2-w[i]*np.cos(value)]))[2]
+        m[0,i] = np.sort(np.roots([1,-4,3-(w**2)[i],2+w[i]*np.cos(value)]))[0]
+        m[1,i] = np.sort(np.roots([1,-4,3-(w**2)[i],2+w[i]*np.cos(value)]))[1]
+        m[2,i] = np.sort(np.roots([1,-4,3-(w**2)[i],2+w[i]*np.cos(value)]))[2]
     return m
 
 fig = plt.figure()
